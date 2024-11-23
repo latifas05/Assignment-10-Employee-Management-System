@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.assignment10.HelloController">
+    <VBox xmlns:fx="http://javafx.com/fxml" alignment="CENTER" spacing="10.0">
+        <padding>
+            <Insets top="10.0" right="10.0" bottom="10.0" left="10.0"/>
+        </padding>
+        <TextField fx:id="nameField" promptText="Employee Name" />
+        <ComboBox fx:id="typeComboBox" promptText="Employee Type">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Full-time" />
+                    <String fx:value="Part-time" />
+                    <String fx:value="Contractor" />
+                </FXCollections>
+            </items>
+        </ComboBox>
+        <TextField fx:id="rateField" promptText="Hourly Rate/Salary"/>
+        <TextField fx:id="hoursField" promptText="Hours Worked"/>
+        <TextField fx:id="maxHoursField" promptText="Max Hours (Contractor)"/>
+
+        <HBox spacing="10" alignment="CENTER">
+            <Button text="Add Employee" onAction="#addEmployee"/>
+            <Button text="Calculate Salaries" onAction="#calculateSalaries"/>
+            <Button text="Remove Employee" onAction="#removeEmployee"/>
+        </HBox>
+
+        <TableView fx:id="employeeTable" prefHeight="200" prefWidth="500">
+            <columns>
+                <TableColumn fx:id="nameColumn" text="Name" prefWidth="150" />
+                <TableColumn fx:id="typeColumn" text="Employee Type" prefWidth="150" />
+                <TableColumn fx:id="salaryColumn" text="Salary" prefWidth="150" />
+            </columns>
+        </TableView>
+    </VBox>
+</AnchorPane>
